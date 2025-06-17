@@ -1,9 +1,4 @@
-Thought for a couple of seconds
 
-Below is the full **README.md** contents ready for copy-paste.  
-Just select everything (including the opening and closing ```````), save as `README.md`, and commit!
-
-```markdown
 # 📡 Pikud-Mesh + Ynet News Bridge
 
 Forward real-time **Home-Front Command (Pikud HaOref) alerts** and **Ynet breaking-news headlines** straight into your Meshtastic mesh:
