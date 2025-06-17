@@ -8,7 +8,7 @@ Mesh-Alerts + News Bridge
 import json, time, requests, re, argparse, sys, os, threading, feedparser
 from datetime import datetime, timezone, timedelta
 from enum import Enum
-from meshtastic import portnums_pb2 as portnums        # ⬅️ NEW
+from meshtastic import portnums_pb2 as portnums
 import meshtastic.serial_interface
 
 # ───── Config ─────────────────────────────────────────────────────────────
