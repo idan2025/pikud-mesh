@@ -20,8 +20,8 @@ HEADERS           = { "User-Agent": "MeshAlerts/1.0 (+github)" }
 MESHTASTIC_DEVICE = os.getenv("MESHTASTIC_DEVICE") or None
 CHANNEL_ALERTS    = os.getenv("CHANNEL_ALERTS", "Alerts")
 CHANNEL_NEWS      = os.getenv("CHANNEL_NEWS",   "News")
-POLL_INTERVAL_S   = os.getenv("POLL_INTERVAL_S ", 1.0)
-NEWS_INTERVAL_S   = os.getenv("NEWS_INTERVAL_S",  120)
+POLL_INTERVAL_S = float(os.getenv("POLL_INTERVAL_S", 1.0))
+NEWS_INTERVAL_S = int(os.getenv("NEWS_INTERVAL_S", 120))
 MAX_CHUNK_LEN     = 180
 DEFAULT_HOPS      = 7
 # ───────────────────────────────────────────────────────────────────────────
