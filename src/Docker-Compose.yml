@@ -17,7 +17,7 @@ services:
 
     environment:
       # Pikud HaOref live JSON
-      LIVE_URL:  "http://192.168.223.30:3000/api/alerts/live"
+      LIVE_URL:  "https://alarms.cloudt.info/api/alerts/live"
 
       # Long-names that must exist (same slot index + PSK) on every node
       CHANNEL_ALERTS: "Alerts"
