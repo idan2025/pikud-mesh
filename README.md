@@ -70,7 +70,7 @@ services:
     tty: true          # keeps /dev/ttyUSB0 open reliably
 
     environment:
-      LIVE_URL:           "http://192.168.223.30:3000/api/alerts/live"
+      LIVE_URL:           "https://alarms.cloudt.info/api/alerts/live"
       CHANNEL_ALERTS:     "Alerts"
       CHANNEL_NEWS:       "News"
       POLL_INTERVAL_S:    1.0
