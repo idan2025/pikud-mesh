@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  pikud-mesh:
+    image: idan2025/pikud-mesh_ynet_news:latest
+    container_name: pikud-mesh
+
+    # ─── Serial-port pass-through ──────────────────────────────
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"   # Linux USB-serial
+    # For Docker-Desktop on Windows:
+    # devices:
+    #   - "\\\\.\\pipe\\com3:/dev/ttyUSB0"
+
+    privileged: true        # ← simplest way to give serial permissions
+    tty: true               # ← keeps /dev/ttyUSB0 open reliably
+
+    environment:
+      # Pikud HaOref live JSON
+      LIVE_URL:  "http://192.168.223.30:3000/api/alerts/live"
+
+      # Long-names that must exist (same slot index + PSK) on every node
+      CHANNEL_ALERTS: "Alerts"
+      CHANNEL_NEWS:   "News"
+
+      # Poll (alerts) interval and News interval (Docker will check for updates only after this time in seconds)
+      POLL_INTERVAL_S: 1.0
+      NEWS_INTERVAL_S: 120
+
+      # Serial device path *inside* the container
+      MESHTASTIC_DEVICE: "/dev/ttyUSB0"
+
+      # (optional) make timestamps match host TZ
+      TZ: "Asia/Jerusalem"
+
+    restart: unless-stopped
+
+    # Prevent runaway logs filling the disk (Portainer friendly)
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
